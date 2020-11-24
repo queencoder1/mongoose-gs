@@ -19,25 +19,46 @@ db.once('open', function(){
     console.log("We're connected");
 
     /* schema  */
-    const kittySchema = new mongoose.Schema({
-        name : { type: String, required: true, maxlength: 25 }
+    const ingredientSchema = new mongoose.Schema({
+        name : String,
+        measurement: String, 
+        amount : Number 
+    });
+
+    const recipeSchema = new mongoose.Schema({
+        name : String, 
+        description: String,
+        instructions: String,
+        ingredients : [ingredientSchema]
     }); 
 
-    kittySchema.methods.speak = function(){
-        let greeting; 
-        if(this.name){
-            greeting = "Meow name is " + this.name; 
-        }
-        else {
-            greeting = "I don't have a name"; 
-        }
-        console.log(greeting); 
-    }
 
     /* model */ 
-    const Kitten = mongoose.model('Kitten', kittySchema); 
+    const Recipe = mongoose.model('Recipe', recipeSchema); 
 
     /* documents */ 
+    let stoneSoupObj = {
+        name : "Stone Soup", 
+        description: "A soup made by tricked villagers",
+        instructions: "Trick each villager into donating for the soup for everyone",
+        ingredients : [ 
+            { name : "Carrots",
+            measurement: "Cups", 
+            amount : 5 },
+            
+            { name : "Onions",
+            measurement: "Cups", 
+            amount : 5.5 },
+
+            { name : "Whatever is on hand",
+            measurement: "Cups", 
+            amount : 5 
+            }
+        ]
+    };
+
+    let stoneSoup = new Recipe(stoneSoupObj);
+
     let silence = new Kitten({ name : "Silence" }); 
     silence.speak(); 
     silence.name = "Loud";
