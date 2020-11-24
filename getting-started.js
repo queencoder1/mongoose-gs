@@ -56,7 +56,7 @@ db.once('open', function(){
         cat.speak(); 
     })
     
-    /*a method attached directly to our Kitten model/class */ 
+    /*find is a method attached directly to our Kitten model/class */ 
     Kitten.find(function(err, kittens){
         if(err) return console.error(err);
         console.log(kittens); 
