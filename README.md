@@ -1,3 +1,5 @@
+
+
 # mongoose-gs
 * This lab is going to be relatively simple, since this is all new. We're going to create a recipe ingredients database with Mongoose similar to the SQL database from before.
 * Create the mongoose schema and model and add 2 recipes. 

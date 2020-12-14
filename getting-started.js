@@ -59,6 +59,33 @@ db.once('open', function(){
 
     let stoneSoup = new Recipe(stoneSoupObj);
 
+    const Recipe = mongoose.model('Recipe', recipeSchema); 
+
+    /* documents */ 
+    let OatmealObj = {
+        name : "Oatmeal", 
+        description: "A nutrious breakfast",
+        instructions: "Boil a pot of water, add oatmeal, salt for taste and cook for 15 mins",
+        ingredients : [ 
+            { name : "Water",
+            measurement: "Cups", 
+            amount : 3 },
+            
+            { name : "Oatmeal",
+            measurement: "Cups", 
+            amount : 1 },
+
+            { name : "salt",
+            measurement: "teaspoon", 
+            amount : .5
+            }
+        ]
+    };
+
+    let Oatmeal = new Recipe(OatmealObj);
+
+
+    
     let silence = new Kitten({ name : "Silence" }); 
     silence.speak(); 
     silence.name = "Loud";
