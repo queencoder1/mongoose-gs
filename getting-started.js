@@ -61,7 +61,7 @@ db.once('open', function(){
 
     const Recipe = mongoose.model('Recipe', recipeSchema); 
 
-    /* documents */ 
+    /* New Recipe */ 
     let OatmealObj = {
         name : "Oatmeal", 
         description: "A nutrious breakfast",
@@ -85,7 +85,7 @@ db.once('open', function(){
     let Oatmeal = new Recipe(OatmealObj);
 
 
-    
+
     let silence = new Kitten({ name : "Silence" }); 
     silence.speak(); 
     silence.name = "Loud";
